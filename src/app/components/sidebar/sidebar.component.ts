@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { Tarea } from 'src/app/task';
+import * as actions from 'src/app/todo.actions';
 
 @Component({
   selector: 'app-sidebar',
@@ -14,7 +16,7 @@ export class SidebarComponent implements OnInit {
 
   task: Tarea = { name: '', checked: false }
 
-  constructor(private sds: SharedDataService) { }
+  constructor(private sds: SharedDataService, private store: Store) { }
 
   ngOnInit(): void {
   }
@@ -22,12 +24,16 @@ export class SidebarComponent implements OnInit {
 
   addTask(ev: any) {
     if (ev.key === "Enter") {
+      if (ev.target.value === '' || ev.target.value === undefined) {
+        console.log('chau');
+        return
+      }
       this.task.name = ev.target.value;
       this.task.checked = false;
-      this.tasks.push(this.task)
-      this.sds.pushTask.next(this.task)
-      this.task = { name: '', checked: false }
-      ev.target.value = ''
+      // this.sds.pushTask.next(this.task)
+      // this.task = { name: '', checked: false }
+      // ev.target.value = ''
+      this.store.dispatch(actions.crear({ name: ev.target.value }))
     }
 
   }

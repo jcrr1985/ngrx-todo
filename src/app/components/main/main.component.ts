@@ -1,4 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { appState } from 'src/app/app.reducer';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { Tarea } from 'src/app/task';
 
@@ -12,15 +14,10 @@ export class MainComponent implements OnInit {
 
   tasks: Tarea[] = [];
 
-  constructor(private sds: SharedDataService) { }
+  constructor(private sds: SharedDataService, private store: Store<any>) { }
 
   ngOnInit(): void {
-    this.sds.pushTask$.subscribe(task => {
-      console.log('task', task)
-      this.tasks.push(task)
-      console.log('this.tasks', this.tasks)
-    }
-    )
+    this.store.select('todo').subscribe(todos => this.tasks = todos)
   }
 
   check(ev: any, i: any) {

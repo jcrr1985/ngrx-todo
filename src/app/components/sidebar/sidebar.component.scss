@@ -1,0 +1,12 @@
+.worlds {
+    background-color: #86011a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 6rem);
+    input {
+        margin-right: 1rem;
+        padding: 1rem;
+        margin-left: .5rem;
+    }
+}

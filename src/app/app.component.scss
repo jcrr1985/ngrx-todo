@@ -45,7 +45,12 @@ ul {
 .footer {
   height: 20%;
   background-color: violet;
+  background: linear-gradient(0deg, #1d1736, transparent);
   @include centered;
+}
+
+.footer{
+  background: linear-gradient(180deg, #1d1736, transparent);
 }
 
 

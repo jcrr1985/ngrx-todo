@@ -1,0 +1,23 @@
+
+
+.user-wrapper{
+  min-width: 180px;
+  padding: 1rem;
+  border: 1px solid greenyellow;
+  border-radius: 15px;
+  display: inline-block;
+  margin: .5rem;
+  text-align: center;
+  background: linear-gradient(45deg, black, transparent);
+  color: #fff;
+  button{
+    background-color: crimson;
+    color: #fff;
+    font-weight: bold;
+  }
+}
+
+.main {
+  background-color: #1d1736;
+  padding: .3rem  ;
+}

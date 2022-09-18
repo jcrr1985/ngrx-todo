@@ -1,24 +1,77 @@
-::ng-deep .backnight {
-    padding: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    ;
-    background-color: #111;
-    ul {
-        display: flex;
-        li:not(:first-child) {
-            margin-left: 1rem
-        }
-    }
+@mixin centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.wrapper__main {
+.wrapper__all {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+input {
+  margin-right: 1rem;
+  padding: 1rem;
+  margin-left: .5rem;
+}
+
+ul {
+  display: flex;
+
+  li {
+    padding: .5rem
+  }
+}
+
+.flex {
+  display: flex;
+
+  &.body {
     display: flex;
-    app-main {
-        width: -webkit-fill-available;
-        height: auto;
-        display: grid;
-        background-color: rgb(36, 6, 33);
-    }
+    flex: 1;
+  }
+}
+
+.aside {
+  background: linear-gradient(45deg, crimson, yellow);
+  flex: 1;
+}
+
+
+
+.header,
+.footer {
+  height: 20%;
+  background-color: violet;
+  @include centered;
+}
+
+
+
+footer.footer {
+  margin-top: auto;
+}
+
+ul {
+  list-style-type: none;
+
+  li {
+    padding: 1rem;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  input {
+    margin-top: 1rem;
+  }
+}
+
+app-users {
+  display: flex;
+  flex: 3;
 }

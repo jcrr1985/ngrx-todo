@@ -1,8 +1,59 @@
-<div class="wrapper">
-    <app-header></app-header>
-    <div class="wrapper__main">
-        <app-sidebar></app-sidebar>
-        <app-main></app-main>
+<div class="wrapper__all">
+    <div class="header flex">
+        <ul>
+            <li>
+                <a>lorem</a>
+            </li>
+            <li>
+                <a href="">ipsum</a>
+            </li>
+            <li>
+                <a href="">dolor</a>
+            </li>
+            <li>
+                <a href="">sit</a>
+            </li>
+        </ul>
     </div>
-    <app-footer></app-footer>
+    <div class="flex body">
+        <div class="aside">
+            <form [formGroup]="forma" (submit)="addUser()">
+                <input type="text" formControlName="name" placeholder="name">
+                <input type="number" formControlName="edad" placeholder="edad">
+                <input type="text" formControlName="email" placeholder="email">
+                <input type="submit" value="Add user">
+            </form>
+        </div>
+
+        <!-- Users -->
+        <app-users (deleteUserEvent)="deleteUser($event)"></app-users>
+<!--
+    <label for="gifBtn">GifBtn</label>
+        <input type="text" (keyup.enter)="searchGif(inpGif.value)" #inpGif placeholder="Gif name"> -->
+
+         <!-- <div class="gifContainer">
+          <ul>
+            <li *ngFor="let gif of gifsResults">
+              <img [src]="gif.images.fixed_width_small.url" [alt]="gif.title">
+            </li>
+          </ul>
+        </div>  -->
+
+    </div>
+    <footer class="footer">
+        <ul>
+            <li>
+                <a href="">lorem</a>
+            </li>
+            <li>
+                <a href="">ipsum</a>
+            </li>
+            <li>
+                <a href="">dolor</a>
+            </li>
+            <li>
+                <a href="">sit</a>
+            </li>
+        </ul>
+    </footer>
 </div>

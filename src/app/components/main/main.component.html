@@ -1,7 +1,0 @@
-<div class="main">
-    <div class="tareas" *ngFor="let task of tasks; let i = index">
-        <a class="task"> {{task.name}}</a>
-        <input type="checkbox" name="lista" id="lista" #lista>
-        <i class="material-icons" style="font-size:30px;color:blue;" (click)="check($event, i)">delete</i>
-    </div>
-</div>

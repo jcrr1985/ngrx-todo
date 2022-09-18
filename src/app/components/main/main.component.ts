@@ -1,8 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { appState } from 'src/app/app.reducer';
 import { SharedDataService } from 'src/app/services/shared-data.service';
-import { Tarea } from 'src/app/task';
 
 @Component({
   selector: 'app-main',
@@ -11,20 +10,18 @@ import { Tarea } from 'src/app/task';
 })
 export class MainComponent implements OnInit {
   @ViewChild('lista') lista: ElementRef | undefined;
+  forma!: FormGroup;
 
-  tasks: Tarea[] = [];
 
-  constructor(private sds: SharedDataService, private store: Store<any>) { }
+  constructor(private sds: SharedDataService, private store: Store<any>, private fb: FormBuilder) {
+    this.forma = this.fb.group({
+      algo: ['algo', Validators.required]
+    })
+  }
 
   ngOnInit(): void {
-    this.store.select('todo').subscribe(todos => this.tasks = todos)
   }
 
-  check(ev: any, i: any) {
 
-    console.log('this.lista', this.lista)
-    console.log('this.lista.nativeElement.checked', this.lista?.nativeElement.checked);
-    this.tasks.splice(i, 1)
-  }
 
 }

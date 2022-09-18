@@ -1,0 +1,11 @@
+<div class="main">
+  <ng-container *ngFor="let user of users">
+    <div class="user-wrapper">
+      <p>{{user.name}}</p>
+      <p>{{user.email}}</p>
+      <p>{{user.edad}}</p>
+      <br>
+      <button (click)="deleteUser(user._id)">X Delete</button>
+    </div>
+  </ng-container>
+</div>

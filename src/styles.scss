@@ -3,9 +3,14 @@
     padding: 0;
 }
 
-app-header,
-app-footer {}
 
-i {
+button, input[type = "submit"] {
     cursor: pointer;
+    background: black;
+    color: #fff;
+    border-radius: 5px;
+}
+
+input{
+  border-radius: 5px;
 }
